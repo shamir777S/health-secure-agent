@@ -36,14 +36,15 @@ Le système repose sur deux agents :
 
 ### Installation
 
-```bash
 git clone https://github.com/shamir777S/health-secure-agent.git
 cd health-secure-agent
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-Résultat
+---
+
+### Résultat
 
 Le système analyse automatiquement les fichiers :
 	•	Si le fichier contient des données sensibles → il est chiffré
@@ -52,7 +53,9 @@ Le système analyse automatiquement les fichiers :
 Exemple :
 patient.txt → patient.txt.encrypted
 
-Sécurité et conformité
+---
+
+### Sécurité et conformité
 
 Ce système permet :
 	•	Protection des données de santé
@@ -60,12 +63,16 @@ Ce système permet :
 	•	Respect de la confidentialité (RGPD)
 	•	Amélioration de la cyber-résilience
 
-Auditabilité
+---
+
+### Auditabilité
 	•	Code open source
 	•	Processus transparent
 	•	Décisions traçables (analyse IA + chiffrement)
 
-Limites
+---
+
+### Limites
 	•	Projet démonstratif
 	•	Gestion des clés simplifiée
 	•	Dépendance à une API IA
