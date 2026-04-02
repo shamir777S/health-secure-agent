@@ -1,0 +1,2 @@
+Nom : Jean Dupont
+Diagnostic : Donnée médicale sensible
