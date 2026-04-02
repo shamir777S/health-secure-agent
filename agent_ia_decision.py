@@ -1,12 +1,13 @@
+from pathlib import Path
+from dotenv import load_dotenv
 from agno.agent import Agent
 from agno.models.groq import Groq
 from agent_encrypt import HealthEncryptionAgent
-from pathlib import Path
 
-#  Agent de chiffrement
+load_dotenv()
+
 encrypt_agent = HealthEncryptionAgent()
 
-#  Agent IA décisionnel
 decision_agent = Agent(
     name="Health Data Security Agent",
     model=Groq(id="llama-3.3-70b-versatile"),
@@ -14,28 +15,28 @@ decision_agent = Agent(
 Tu es un agent IA de cybersécurité hospitalière.
 
 Ta mission :
-- Identifier les données sensibles (patients, médical, financier)
-- Décider si le fichier doit être chiffré
-- Répondre uniquement par OUI ou NON
-"""
+- identifier les données sensibles de santé ou financières
+- décider si un fichier doit être chiffré
+- répondre uniquement par OUI ou NON
+""",
 )
 
-def process_file(file_path):
-    content = file_path.read_text()
+def process_file(file_path: Path):
+    content = file_path.read_text(encoding="utf-8")
 
-    decision = decision_agent.run(
-        f"Ce fichier contient : {content}. Doit-il être chiffré ?"
+    run_output = decision_agent.run(
+        f"Ce fichier contient : {content}\nDoit-il être chiffré ? Réponds uniquement par OUI ou NON."
     )
 
-    print(f"\nAnalyse IA : {decision}")
+    decision_text = str(run_output.content).strip()
+    print(f"\nAnalyse IA : {decision_text}")
 
-    if "OUI" in decision.upper():
+    if "OUI" in decision_text.upper():
         print("🔐 Chiffrement en cours...")
         encrypt_agent.encrypt_file(file_path, Path("encrypted"))
     else:
         print("✅ Fichier non sensible")
 
-# TEST
 if __name__ == "__main__":
     test_file = Path("sample_data/patient.txt")
     process_file(test_file)
