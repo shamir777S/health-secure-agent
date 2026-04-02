@@ -42,3 +42,30 @@ cd health-secure-agent
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
+Résultat
+
+Le système analyse automatiquement les fichiers :
+	•	Si le fichier contient des données sensibles → il est chiffré
+	•	Le fichier devient illisible sans la clé
+
+Exemple :
+patient.txt → patient.txt.encrypted
+
+Sécurité et conformité
+
+Ce système permet :
+	•	Protection des données de santé
+	•	Réduction du risque d’exfiltration
+	•	Respect de la confidentialité (RGPD)
+	•	Amélioration de la cyber-résilience
+
+Auditabilité
+	•	Code open source
+	•	Processus transparent
+	•	Décisions traçables (analyse IA + chiffrement)
+
+Limites
+	•	Projet démonstratif
+	•	Gestion des clés simplifiée
+	•	Dépendance à une API IA
