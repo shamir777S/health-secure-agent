@@ -1,25 +1,35 @@
-Health Secure Agent
+ Health Secure Agent
 
  Description
 Agent automatisé de chiffrement des données de santé.
 
  Objectif
-Protéger les fichiers sensibles afin qu’ils restent illisibles en cas de cyberattaque ou d’exfiltration.
+Garantir la confidentialité des données sensibles même en cas de cyberattaque (ex : ransomware, exfiltration).
 
- Fonctionnement
-- Génère une clé de chiffrement
-- Parcourt un dossier
-- Chiffre tous les fichiers
-- Stocke les fichiers chiffrés séparément
+Fonctionnement
+- Génération automatique d’une clé de chiffrement
+- Parcours des fichiers d’un dossier
+- Chiffrement des données
+- Stockage sécurisé des fichiers chiffrés
 
- Installation
-pip install cryptography
+Installation
+pip install -r requirements.txt
 
- Exécution
+ Utilisation
 python agent_encrypt.py
 
-Résultat
-Les fichiers sont transformés en `.encrypted` et deviennent illisibles.
+ Exemple
+Un fichier patient.txt devient :
+patient.txt.encrypted
 
-Contexte
-Projet réalisé dans le cadre de la cybersécurité des systèmes de santé et conformité RGPD.
+Sécurité
+- Données illisibles sans clé
+- Protection contre fuite de données
+- Compatible RGPD (confidentialité)
+
+ Contexte
+Projet réalisé dans le cadre de :
+- Cyber-résilience des systèmes de santé
+- Conformité RGPD
+- Finance Agentique
+
