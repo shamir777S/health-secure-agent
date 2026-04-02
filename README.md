@@ -1,35 +1,44 @@
- Health Secure Agent
+# Health Secure Agent
 
- Description
-Agent automatisé de chiffrement des données de santé.
+## Description
+Ce projet implémente un système agentique de protection des données de santé basé sur l’intelligence artificielle.
 
- Objectif
-Garantir la confidentialité des données sensibles même en cas de cyberattaque (ex : ransomware, exfiltration).
+Il combine :
+- un agent IA de décision
+- un agent de chiffrement
 
-Fonctionnement
-- Génération automatique d’une clé de chiffrement
-- Parcours des fichiers d’un dossier
-- Chiffrement des données
-- Stockage sécurisé des fichiers chiffrés
+## Objectif
+Garantir que les données sensibles restent illisibles même en cas de cyberattaque ou d’exfiltration.
 
-Installation
+---
+
+## Architecture du système
+
+Le système repose sur deux agents :
+
+### 1. Agent IA (Decision Agent)
+- Analyse le contenu des fichiers
+- Identifie les données sensibles (santé, patient, financier)
+- Décide si le fichier doit être chiffré
+
+### 2. Agent de chiffrement
+- Chiffre les fichiers sensibles
+- Génère une clé de chiffrement
+- Rend les données illisibles sans clé
+
+---
+
+## Déploiement
+
+### Prérequis
+- Python 3
+- Accès à une API Groq
+
+### Installation
+
+```bash
+git clone https://github.com/shamir777S/health-secure-agent.git
+cd health-secure-agent
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
-
- Utilisation
-python agent_encrypt.py
-
- Exemple
-Un fichier patient.txt devient :
-patient.txt.encrypted
-
-Sécurité
-- Données illisibles sans clé
-- Protection contre fuite de données
-- Compatible RGPD (confidentialité)
-
- Contexte
-Projet réalisé dans le cadre de :
-- Cyber-résilience des systèmes de santé
-- Conformité RGPD
-- Finance Agentique
-
